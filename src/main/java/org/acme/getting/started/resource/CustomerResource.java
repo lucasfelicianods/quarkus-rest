@@ -42,12 +42,8 @@ public class CustomerResource {
     @DELETE
     @Path("/{id}")
     @Transactional
-    @Consumes("application/json")
-    @Produces("application/json")
     public void delete(@PathParam("id") Long id) {
-        var customerSaved = Customer.findById(id);
-        System.out.println(id);
-        Customer.deleteById(customerSaved);
+        Customer.delete("id", id);
     }
 
 }
